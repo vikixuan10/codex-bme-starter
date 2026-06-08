@@ -3,19 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>安装 Imperial BME Codex Starter</title>
+    <title>嘉宜的 Codex 入门 Skill</title>
     <style>
       :root {
-        color-scheme: light;
-        --ink: #18202f;
-        --muted: #5f6877;
-        --line: #d9dde6;
-        --panel: #ffffff;
-        --bg: #f6f4ef;
-        --blue: #245fbc;
-        --green: #1d7a5b;
-        --amber: #b05b16;
-        --shadow: 0 18px 55px rgba(24, 32, 47, 0.12);
+        --bg: #f7f5f0;
+        --text: #171b24;
+        --muted: #626b7a;
+        --line: #ded9cf;
+        --button: #1f5faa;
+        --button-hover: #194f8f;
+        --panel: #fffefa;
       }
 
       * {
@@ -24,505 +21,140 @@
 
       body {
         margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
         font-family:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
           "Segoe UI", sans-serif;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0)),
-          var(--bg);
-        color: var(--ink);
+        color: var(--text);
+        background: var(--bg);
       }
 
       main {
-        width: min(1040px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 40px 0 56px;
-      }
-
-      .top {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 28px;
-        align-items: end;
-        margin-bottom: 26px;
-      }
-
-      .eyebrow {
-        margin: 0 0 10px;
-        font-size: 0.86rem;
-        font-weight: 700;
-        color: var(--blue);
-        text-transform: uppercase;
+        width: min(680px, 100%);
+        padding: clamp(28px, 6vw, 56px);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+        box-shadow: 0 22px 70px rgba(23, 27, 36, 0.1);
       }
 
       h1 {
-        max-width: 720px;
         margin: 0;
-        font-size: clamp(2rem, 5vw, 4.3rem);
-        line-height: 0.98;
+        font-size: clamp(2rem, 7vw, 4.2rem);
+        line-height: 1.04;
         letter-spacing: 0;
       }
 
-      .summary {
-        margin: 16px 0 0;
-        max-width: 690px;
+      p {
+        margin: 18px 0 0;
         color: var(--muted);
-        font-size: 1.08rem;
+        font-size: 1.05rem;
         line-height: 1.65;
       }
 
-      .device-strip {
-        display: grid;
-        gap: 10px;
-      }
-
-      .device {
-        display: grid;
-        grid-template-columns: 42px 1fr;
-        gap: 12px;
-        align-items: center;
-        padding: 13px 14px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.72);
-      }
-
-      .device svg {
-        width: 42px;
-        height: 42px;
-      }
-
-      .device strong {
-        display: block;
-        font-size: 0.96rem;
-      }
-
-      .device span {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 22px;
-      }
-
-      .panel {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .panel-header {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        padding: 20px 22px 18px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .mark {
-        width: 46px;
-        height: 46px;
-        display: grid;
-        place-items: center;
-        border-radius: 8px;
-        background: #e8f0ff;
-        color: var(--blue);
-        flex: 0 0 auto;
-      }
-
-      .mark.green {
-        background: #e8f6ef;
-        color: var(--green);
-      }
-
-      h2 {
-        margin: 0;
-        font-size: 1.24rem;
-        letter-spacing: 0;
-      }
-
-      .sub {
-        margin: 4px 0 0;
-        color: var(--muted);
-        line-height: 1.45;
-      }
-
-      .panel-body {
-        padding: 20px 22px 22px;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 8px;
-        color: var(--ink);
-        font-weight: 700;
-        font-size: 0.95rem;
-      }
-
-      input,
-      textarea {
-        width: 100%;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        color: var(--ink);
-        background: #fbfcff;
-        font: inherit;
-      }
-
-      input {
-        height: 44px;
-        padding: 0 12px;
-      }
-
-      textarea {
-        min-height: 390px;
-        resize: vertical;
-        padding: 14px;
-        line-height: 1.55;
-        font-family:
-          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-          monospace;
-        font-size: 0.92rem;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 14px;
-      }
-
-      button,
-      a.button {
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 9px;
-        padding: 0 15px;
-        border-radius: 8px;
-        border: 1px solid transparent;
-        font: inherit;
-        font-weight: 750;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      button.primary {
-        background: var(--blue);
-        color: #fff;
-      }
-
-      button.secondary,
-      a.button {
-        background: #fff;
-        color: var(--ink);
-        border-color: var(--line);
-      }
-
-      .steps {
-        display: grid;
-        gap: 12px;
-        margin: 0;
+      ol {
+        margin: 28px 0 0;
         padding: 0;
         list-style: none;
-      }
-
-      .steps li {
         display: grid;
-        grid-template-columns: 34px 1fr;
         gap: 12px;
-        align-items: start;
-        padding: 13px 0;
-        border-bottom: 1px solid var(--line);
       }
 
-      .steps li:last-child {
-        border-bottom: 0;
+      li {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 12px;
+        align-items: center;
+        color: var(--text);
+        font-size: 1rem;
       }
 
       .num {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
         display: grid;
         place-items: center;
-        border-radius: 8px;
-        background: #f3f5f9;
-        color: var(--blue);
+        border-radius: 50%;
+        background: #e8eef8;
+        color: var(--button);
         font-weight: 800;
       }
 
-      .steps strong {
-        display: block;
-        margin-bottom: 3px;
+      button {
+        width: 100%;
+        min-height: 58px;
+        margin-top: 30px;
+        border: 0;
+        border-radius: 9px;
+        background: var(--button);
+        color: #fff;
+        font: inherit;
+        font-size: 1.08rem;
+        font-weight: 800;
+        cursor: pointer;
       }
 
-      .steps span,
-      .note,
-      .manual code {
-        color: var(--muted);
-      }
-
-      .note {
-        margin: 16px 0 0;
-        line-height: 1.55;
-      }
-
-      .manual {
-        display: grid;
-        gap: 13px;
-      }
-
-      .command {
-        margin: 0;
-        padding: 13px;
-        border-radius: 8px;
-        background: #161b24;
-        color: #f5f7fb;
-        overflow-x: auto;
-        font-family:
-          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-          monospace;
-        font-size: 0.9rem;
-        line-height: 1.5;
+      button:hover {
+        background: var(--button-hover);
       }
 
       .status {
-        min-height: 22px;
-        margin-top: 10px;
-        color: var(--green);
-        font-weight: 700;
+        min-height: 26px;
+        margin-top: 14px;
+        color: #22714f;
+        font-weight: 750;
       }
 
-      .warning {
-        border-left: 4px solid var(--amber);
-        padding: 12px 14px;
-        border-radius: 8px;
-        background: #fff8ef;
-        color: #5c3a16;
-        line-height: 1.55;
-      }
-
-      @media (max-width: 840px) {
-        main {
-          width: min(100% - 22px, 680px);
-          padding-top: 24px;
-        }
-
-        .top,
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .device-strip {
-          grid-template-columns: 1fr;
-        }
-
-        textarea {
-          min-height: 460px;
-        }
+      textarea {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
       }
     </style>
   </head>
   <body>
     <main>
-      <section class="top" aria-labelledby="page-title">
-        <div>
-          <p class="eyebrow">Codex Skill Installer</p>
-          <h1 id="page-title">安装 Imperial BME Codex Starter</h1>
-          <p class="summary">
-            这是一个给生物医学工程学生用的 Codex 入门 Skill。最简单的安装方法：
-            复制下面的提示词，发给 Codex，让 Agent 自己完成下载、解压和验证。
-          </p>
-        </div>
+      <h1>嘉宜，这是给你（帝国理工生物医学工程本科生）用的 Codex 入门 Skill</h1>
+      <p>进入页面后，你只需要点击下面的按钮，然后把复制出来的内容发给 Codex。</p>
 
-        <div class="device-strip" aria-label="设备支持说明">
-          <div class="device">
-            <svg viewBox="0 0 48 48" role="img" aria-label="电脑">
-              <rect x="7" y="10" width="34" height="24" rx="3" fill="#245fbc" />
-              <rect x="10" y="13" width="28" height="18" rx="2" fill="#e8f0ff" />
-              <path d="M19 39h10l2 4H17l2-4Z" fill="#18202f" />
-            </svg>
-            <div>
-              <strong>Mac 或 Windows：推荐</strong>
-              <span>可以体验 Codex 本地 Agent 和 Skill。</span>
-            </div>
-          </div>
-          <div class="device">
-            <svg viewBox="0 0 48 48" role="img" aria-label="iPad">
-              <rect x="12" y="5" width="24" height="38" rx="4" fill="#1d7a5b" />
-              <rect x="15" y="9" width="18" height="28" rx="2" fill="#e8f6ef" />
-              <circle cx="24" cy="40" r="1.6" fill="#ffffff" />
-            </svg>
-            <div>
-              <strong>iPad：可以先学方法</strong>
-              <span>适合互动训练；本地文件工作流仍建议用电脑。</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ol aria-label="使用步骤">
+        <li><span class="num">1</span><span>点击“复制给 Codex 的提示词”。</span></li>
+        <li><span class="num">2</span><span>打开 Codex，新建一个对话。</span></li>
+        <li><span class="num">3</span><span>粘贴并发送，Codex 会帮你安装并开始训练。</span></li>
+      </ol>
 
-      <section class="grid">
-        <article class="panel">
-          <div class="panel-header">
-            <div class="mark" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div>
-              <h2>让 Agent 安装</h2>
-              <p class="sub">复制提示词，发给 Codex。她不用懂命令行。</p>
-            </div>
-          </div>
-          <div class="panel-body">
-            <label for="zipUrl">Skill zip 地址</label>
-            <input id="zipUrl" spellcheck="false" />
-            <p class="note">
-              如果你把 zip 放在 GitHub 仓库根目录，地址通常像这样：
-              <code>https://raw.githubusercontent.com/用户名/仓库名/main/imperial-bme-codex-starter.zip</code>
-            </p>
-
-            <label for="prompt" style="margin-top: 18px">复制给 Codex 的提示词</label>
-            <textarea id="prompt" readonly></textarea>
-            <div class="actions">
-              <button class="primary" id="copyPrompt" type="button">
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2" />
-                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-                复制提示词
-              </button>
-              <button class="secondary" id="resetUrl" type="button">恢复默认地址</button>
-            </div>
-            <div class="status" id="status" aria-live="polite"></div>
-          </div>
-        </article>
-
-        <aside class="panel">
-          <div class="panel-header">
-            <div class="mark green" aria-hidden="true">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M20 6 9 17l-5-5"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div>
-              <h2>她实际要做什么</h2>
-              <p class="sub">只要三步，不需要 GitHub 账号。</p>
-            </div>
-          </div>
-          <div class="panel-body">
-            <ol class="steps">
-              <li>
-                <span class="num">1</span>
-                <div>
-                  <strong>打开这个网页</strong>
-                  <span>公开 GitHub Pages 页面不要求登录。</span>
-                </div>
-              </li>
-              <li>
-                <span class="num">2</span>
-                <div>
-                  <strong>复制提示词</strong>
-                  <span>点左边按钮即可。</span>
-                </div>
-              </li>
-              <li>
-                <span class="num">3</span>
-                <div>
-                  <strong>发给 Codex</strong>
-                  <span>Codex 会下载、安装并告诉她下一句怎么启动。</span>
-                </div>
-              </li>
-            </ol>
-
-            <p class="warning">
-              如果她只有 iPad，可以先把提示词发给 ChatGPT/Codex 做互动训练；
-              如果要让 Agent 读写本地文件、生成 deck、跑代码，建议用 Mac 或 Windows 电脑。
-            </p>
-
-            <div class="manual">
-              <h2 style="margin-top: 10px">手动安装</h2>
-              <p class="sub">给懂电脑的人备用。</p>
-              <pre class="command">mkdir -p ~/.agents/skills
-curl -L -o /tmp/imperial-bme-codex-starter.zip [ZIP_URL]
-unzip -o /tmp/imperial-bme-codex-starter.zip -d ~/.agents/skills</pre>
-            </div>
-          </div>
-        </aside>
-      </section>
+      <button id="copyPrompt" type="button">复制给 Codex 的提示词</button>
+      <div class="status" id="status" aria-live="polite"></div>
+      <textarea id="prompt" readonly></textarea>
     </main>
 
     <script>
-      const fallbackUrl =
-        "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/imperial-bme-codex-starter.zip";
+      const zipUrl =
+        "https://raw.githubusercontent.com/vikixuan10/codex-bme-starter/main/assets/imperial-bme-codex-starter.zip";
 
-      const zipInput = document.querySelector("#zipUrl");
+      const promptText = `请帮我安装这个 Codex Skill：\n${zipUrl}\n\n请直接替我完成安装，不要只给我说明。\n\n步骤：\n1. 下载这个 zip。\n2. 解压后确认里面有 imperial-bme-codex-starter/SKILL.md。\n3. 把 imperial-bme-codex-starter 文件夹安装到 ~/.agents/skills/imperial-bme-codex-starter。\n4. 安装后验证 SKILL.md 存在。\n5. 如果需要我重启 Codex，请直接告诉我。\n6. 完成后，让我发送这句话开始：\n   用 $imperial-bme-codex-starter 带我做一遍 Codex 新手互动训练。`;
+
       const promptBox = document.querySelector("#prompt");
       const status = document.querySelector("#status");
-
-      function inferGithubRawUrl() {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get("zip")) return params.get("zip");
-
-        const host = window.location.hostname;
-        const pathParts = window.location.pathname.split("/").filter(Boolean);
-        if (host.endsWith(".github.io") && pathParts.length > 0) {
-          const owner = host.replace(".github.io", "");
-          const repo = pathParts[0];
-          const branch = params.get("branch") || "main";
-          return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/imperial-bme-codex-starter.zip`;
-        }
-        return fallbackUrl;
-      }
-
-      function buildPrompt(url) {
-        return `请帮我安装这个 Codex Skill：\n${url}\n\n你是我的安装 Agent，请直接执行安装，不要只给我说明。\n\n请完成这些步骤：\n1. 判断当前系统是 macOS、Windows 还是 Linux。\n2. 下载上面的 zip 到临时目录。\n3. 解压 zip，并确认里面有 imperial-bme-codex-starter/SKILL.md。\n4. 把整个 imperial-bme-codex-starter 文件夹安装到我的 Codex user skills 目录：\n   - macOS/Linux: ~/.agents/skills/imperial-bme-codex-starter\n   - Windows: %USERPROFILE%\\.agents\\skills\\imperial-bme-codex-starter\n5. 安装后验证 SKILL.md 存在。\n6. 如果 Codex 没有立刻识别这个 Skill，请提醒我重启 Codex。\n7. 最后让我发送这句话启动训练：\n   用 $imperial-bme-codex-starter 带我做一遍 Codex 新手互动训练。\n\n如果网络下载失败、权限不足或 zip 地址不对，请告诉我具体失败原因，并给我最短的手动安装方案。`;
-      }
-
-      function refreshPrompt() {
-        promptBox.value = buildPrompt(zipInput.value.trim() || fallbackUrl);
-      }
-
-      zipInput.value = inferGithubRawUrl();
-      refreshPrompt();
-
-      zipInput.addEventListener("input", () => {
-        refreshPrompt();
-        status.textContent = "";
-      });
-
-      document.querySelector("#resetUrl").addEventListener("click", () => {
-        zipInput.value = fallbackUrl;
-        refreshPrompt();
-        status.textContent = "已恢复默认地址。";
-      });
+      promptBox.value = promptText;
 
       document.querySelector("#copyPrompt").addEventListener("click", async () => {
         try {
-          await navigator.clipboard.writeText(promptBox.value);
-          status.textContent = "已复制。现在把它发给 Codex 就行。";
+          await navigator.clipboard.writeText(promptText);
+          status.textContent = "已复制。现在打开 Codex，粘贴发送就可以。";
         } catch {
+          promptBox.style.position = "fixed";
+          promptBox.style.left = "12px";
+          promptBox.style.top = "12px";
+          promptBox.style.width = "calc(100% - 24px)";
+          promptBox.style.height = "220px";
           promptBox.focus();
           promptBox.select();
-          status.textContent = "已选中文本，可以手动复制。";
+          status.textContent = "浏览器没有允许自动复制，提示词已显示出来，可以手动复制。";
         }
       });
     </script>
